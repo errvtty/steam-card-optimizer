@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: steam-card-optimizer
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DEMO_MODE
+        value: "false"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: STEAM_API_KEY
+        sync: false
+      - key: STEAM_RETURN_URL
+        sync: false
+      - key: STEAM_REALM
+        sync: false
